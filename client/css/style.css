@@ -1,0 +1,93 @@
+
+.topView{
+  display:flex;
+  justify-content: space-around;
+}
+
+/*
+ * Page: Login & Register
+ * ----------------------
+ */
+.login-logo,
+.register-logo {
+	font-size: 35px;
+	text-align: center;
+	margin-bottom: 25px;
+	font-weight: 300;
+}
+.login-logo a,
+.register-logo a {
+	color: #444;
+}
+/*.login-page,
+.register-page {
+	background: url('./../img/luxury-travel.jpg');
+  background-size: cover;
+}*/
+.login-box,
+.register-box {
+	width: 360px;
+	margin: 7% auto;
+
+}
+@media (max-width: 768px) {
+	.login-box,
+	.register-box {
+		width: 90%;
+		margin-top: 40px;
+	}
+}
+.login-box-body {
+	background: #d3d3d3;
+	padding: 20px;
+	border-top: 0;
+	color: #666;
+	height: 300px;
+	border-radius: 14px;
+  -webkit-box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  opacity: 0.9;
+}
+
+.register-box-body {
+	background: #d3d3d3;
+	padding: 20px;
+	border-top: 0;
+	color: #666;
+	height: 355px;
+	border-radius: 14px;
+  -webkit-box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  box-shadow: 3px 6px 28px 7px rgba(0,0,0,0.75);
+  opacity: 0.9;
+}
+
+.login-box-body .form-control-feedback {
+	color: #777;
+}
+.login-box-msg {
+	margin: 0;
+	text-align: center;
+	padding: 0 20px 20px 20px;
+}
+
+.register-box-body .form-control-feedback {
+	color: #777;
+}
+.register-box-msg {
+	margin: 0;
+	text-align: center;
+	padding: 0 20px 20px 20px;
+}
+.social-auth-links {
+	margin: 10px 0;
+}
+
+
+.hold-transition {
+	/* Fix for IE */
+	-webkit-transition: none;
+	-o-transition: none;
+	transition: none;
+}

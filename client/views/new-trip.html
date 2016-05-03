@@ -1,0 +1,80 @@
+<div layout="column" ng-cloak class="md-inline-form">
+  <md-toolbar class="md-theme-light">
+   <h2 class="md-toolbar-tools">
+     <span>Let's Plan An Adventure!</span>
+   </h2>
+ </md-toolbar>
+  <md-content layout-gt-sm="row" layout-padding>
+    <form ng-submit="$event.preventDefault()">
+      <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Destination</label>
+            <input ng-model="trip.destination">
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="row">
+          <md-datepicker ng-model="trip.arrivalDate" md-placeholder="Arriving date">
+            </md-datepicker>
+            <md-datepicker ng-model="trip.departDate" md-placeholder="Departing date">
+          </md-datepicker>
+        </div>
+          </br/>
+        <div layout-gt-sm="row">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Amount to Save</label>
+            <input ng-model="trip.amountToSave">
+          </md-input-container>
+        </div>
+        <div layout-gt-sm="column">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label>Initial Deposit</label>
+            <input ng-model="trip.amountDeposited">
+          </md-input-container>
+          <md-input-container class="md-block" flex-gt-sm>
+            <md-button class="md-raised md-primary" ng-click="hide(ev)">Primary</md-button>
+          </md-input-container>
+        </div>
+    </form>
+  </md-content>
+</div>
+<!-- <div ng-show="hideShowCreate" class="newTripForm">
+  <div ng-controller="newTripCtrl">
+    <h3>Create a new trip</h3>
+  </div>
+  <form ng-submit="createTrip(input)">
+  <div>
+    <label>Where do you want to go?</label>
+    <input type="text" class="form-control" ng-model="input.destination" placeholder="City, State or Country"> -->
+  <!-- DATE PICKER START -->
+      <!-- <div style="display:inline-block; min-height:100px; text-align:center;">
+        <h4>Arrive</h4> -->
+        <!-- <input ng-model="input.arrivalDate" type="text" class="form-control" placeholder="Arrival Date"> -->
+        <!-- <pre>Selected date is: <em>{{dt | date:'fullDate' }}</em></pre>
+        <uib-datepicker ng-model="input.arrivalDate" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
+      </div>
+        <div style="display:inline-block; min-height:100px; text-align:center;">
+          <h4>Depart</h4> -->
+          <!-- <input ng-model="input.departDate" type="text" class="form-control" placeholder="Departure Date"> -->
+          <!-- <uib-datepicker ng-model="departDate" class="well well-sm" datepicker-options="inlineOptions"></uib-datepicker>
+      </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input ng-model="input.amountToSave" type="text" class="form-control" id="exampleInputAmount" placeholder="Amount to Save">
+      <div class="input-group-addon">.00</div>
+  </div>
+  </div>
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon">$</div>
+      <input ng-model="input.initialDeposit" type="text" class="form-control" id="exampleInputAmount" placeholder="Initial Deposit">
+      <div class="input-group-addon">.00</div>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+  <button class="btn btn-warning" type="button">Cancel</button>
+</form>
+</div>
+</div> -->
+<!-- Toggle Create New Trip End -->
