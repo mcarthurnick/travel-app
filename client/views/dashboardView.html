@@ -6,8 +6,8 @@
         <div>
           <hr />
             <ul>
-              <h4>Arrive on: {{ trip.arrivalDate }}</h4>
-              <h4>Depart on: {{ trip.departDate }}</h4>
+              <h4>Arrive on: {{ trip.arrivalDate | date: medium }}</h4>
+              <h4>Depart on: {{ trip.departDate | date: medium }}</h4>
             </ul>
           </div>
   </div>
@@ -15,7 +15,7 @@
       <h4 style="text-align: center; font-weight: 600;">Percentage of Completion</h4>
       <div>
         <hr />
-      <h4 ng-model="getPercentage(trip)">{{ percentOfGoal }}% of your goal! Keep it going!</h4>
+      <!-- <h4 ng-model="getPercentage(trip)">{{ percentOfGoal }}% of your goal! Keep it going!</h4> -->
       <!-- <div layout="row" layout-sm="column" layout-align="space-around">
         <md-progress-circular class="md-warn md-hue-3" md-diameter="70" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-circular>
       </div> -->
@@ -60,9 +60,9 @@
   <table class="table">
   <tbody>
     <th>
-      <td><input type="text" class="form-control" placeholder="Date" /></td>
-      <td><input type="text" class="form-control" placeholder="Description" /></td>
-      <td><input type="text" class="form-control" placeholder="Amount" /></td>
+      <td><input type="text" ng-model="date" class="form-control" placeholder="Date" /></td>
+      <td><input type="text" ng-model="description" class="form-control" placeholder="Description" /></td>
+      <td><input type="text" ng-model="amountDeposited" class="form-control" placeholder="Amount" /></td>
       <td><input class="btn btn-success" type="submit" value="Submit"></td>
     </th>
   </tbody>

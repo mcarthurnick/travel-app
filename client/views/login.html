@@ -1,31 +1,19 @@
-<!-- BEGIN LOGIN FORM -->
-<div class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-box-body">
-          <div class="login-logo">
-              TraV<b>App</b>
-          </div><!-- /.login-logo -->
-            <p class="login-box-msg">Sign in to start saving!</p>
-            <form ng-submit="loginForm(input)">
-              <div class="form-group has-feedback">
-                <input type="email" ng-model="input.email" class="form-control" placeholder="Email" />
-                <span ng-show="errorName"</span>
-              </div>
-              <div class="form-group has-feedback">
-                <input type="password" ng-model="input.password" class="form-control" placeholder="Password"  />
-                <span ng-show="errorEmail"</span>
-              </div>
-              <div class="row">
-                  <div class="col-xs-12">
-                      <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
-                  </div>
-                  <div class="col-xs-12">
-                  </div>
-              </div>
-            </form>
-        </div><!-- /.login-box-body -->
-    </div><!-- /.login-box -->
+<div ng-controller="loginCtrl" class="login-box" layout="column" layout-padding ng-cloak>
+  <br/>
+  <div class="login-logo">
+    <h1>TravApp</h1>
+  </div>
+  <div class="login-box-body">
+    <div layout-gt-sm="column">
+      <md-input-container md-no-float class="md-block">
+            <input ng-model="user.email" placeholder="Username">
+      </md-input-container>
+      <md-input-container md-no-float class="md-block">
+          <input ng-model="user.password" placeholder="Password">
+      </md-input-container>
+      <md-button ng-click="userLogin(user); currentUser();" class="md-raised md-primary" layout-align="center">LOGIN</md-button>
+      <span style="text-align:center;">Don't have any account? ... </span>
+      <md-button ui-sref="register" class="md-raised" layout-align="center">REGISTER</md-button>
+    </div>
+    </div>
 </div>
-
-
-<!-- END LOGIN FORM -->

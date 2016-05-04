@@ -23,6 +23,11 @@ angular.module('travapp', ['ui.router','ngMaterial', 'ui.bootstrap'])
       templateUrl: 'views/login.html',
     })
 
+    .state('register', {
+      url: '/register',
+      templateUrl: 'views/register.html',
+    })
+
     .state('new-trip', {
       url: '/create-trip',
       templateUrl: 'views/new-trip.html',

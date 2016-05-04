@@ -5,17 +5,21 @@ angular.module('travapp').controller('tripCtrl', function($scope, tripService, $
       $scope.trips = res;
     });
 
-    tripService.createTrip().then(function(res){
-      console.log("This is createTrip..", res);
-    });
+    $scope.createTrip = function(destination, arrivalDate, departDate, amountToSave, amountDeposited){
+      console.log("createTrip data from form: ", destination, arrivalDate, departDate, amountToSave, amountDeposited);
+      tripService.createTrip(destination, arrivalDate, departDate, amountToSave, amountDeposited)
+      .then(function(){
 
-    $scope.getPercentage = function(res){
-      $scope.amountSaved = parseInt($scope.trip.amountSavedTotal);
-      $scope.amountToSave = parseInt($scope.trip.amountToSave);
-      $scope.percentOfGoal = Math.round($scope.amountSaved / $scope.amountToSave * 100);
-
-          return $scope.percentOfGoal;
+      });
     };
+
+    // $scope.getPercentage = function(res){
+    //   $scope.amountSaved = parseInt($scope.trip.amountSavedTotal);
+    //   $scope.amountToSave = parseInt($scope.trip.amountToSave);
+    //   $scope.percentOfGoal = Math.round($scope.amountSaved / $scope.amountToSave * 100);
+    //
+    //       return $scope.percentOfGoal;
+    // };
 
     $scope.getTripDetail = function(id) {
     tripService.getTripDetail(id)

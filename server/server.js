@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var userModelCtrl = require('./controllers/userModelCtrl');
 var tripCtrl = require('./controllers/tripCtrl');
+var moment = require('moment');
+
 
 var app = express();
 var port = 4000;
@@ -22,8 +24,9 @@ mongoose.connect(mongoUri);
 // USER ENDPOINTS //
 ////////////////////
 
-// app.get('/user', userModelCtrl.index);
-app.post('/user', userModelCtrl.createUser);
+app.post('/register', userModelCtrl.createUser);
+app.get('/login', userModelCtrl.getUser);
+app.get('/user/current', userModelCtrl.currentUser);
 
 /////////////////////
 // TRIP ENDPOINTS //
