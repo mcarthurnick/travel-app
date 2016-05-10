@@ -36,6 +36,12 @@ app.get('/trip', tripCtrl.getTrips);
 app.post('/trip', tripCtrl.createTrip);
 app.get('/trip/:id', tripCtrl.getTripDetail);
 
+///////////////////////
+// DEPOSIT ENDPOINTS //
+///////////////////////
+
+app.post('/trip/:id', tripCtrl.makeDeposit);
+
 app.listen(port, function() {
         console.log('listening on port', port);
       });

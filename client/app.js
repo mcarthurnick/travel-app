@@ -1,4 +1,4 @@
-angular.module('travapp', ['ui.router','ngMaterial', 'ui.bootstrap'])
+angular.module('travapp', ['ui.router','ngMaterial', 'ui.bootstrap', 'angularMoment'])
 
 
 .config(function($urlRouterProvider, $stateProvider) {

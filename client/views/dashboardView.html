@@ -2,7 +2,7 @@
 <navbar></navbar>
 <div class="topView">
   <div class="card-block halfWidth">
-      <h4 style="text-align: center; font-weight: 600;">Travel Information for {{ trip.destination }}.</h4>
+      <h4 style="text-align: center; font-weight: 600;">{{ trip.arrivalDate | amDifference : null : 'days' }} days until your in {{ trip.destination }}!!</h4>
         <div>
           <hr />
             <ul>
@@ -15,10 +15,11 @@
       <h4 style="text-align: center; font-weight: 600;">Percentage of Completion</h4>
       <div>
         <hr />
-      <!-- <h4 ng-model="getPercentage(trip)">{{ percentOfGoal }}% of your goal! Keep it going!</h4> -->
-      <!-- <div layout="row" layout-sm="column" layout-align="space-around">
-        <md-progress-circular class="md-warn md-hue-3" md-diameter="70" md-mode="determinate" value="{{vm.determinateValue}}"></md-progress-circular>
-      </div> -->
+      <h4 ng-model="getPercentage(trip)">{{ percentOfGoal }}% of your goal! Keep it going!</h4>
+      </div>
+      <div class="progress">
+        <uib-progressbar class="progress-striped active" value="percentOfGoal" type="success"></uib-progressbar>
+      </br/>
       </div>
   </div>
   <div class="card-block halfWidth">
@@ -29,12 +30,8 @@
         </div>
   </div>
 </div>
-<!-- <div class="progress">
-  <uib-progressbar class="progress-striped active" value="getProgressbarValue()" type="success"></uib-progressbar>
-</br/>
-</div> -->
 <div class="panel panel-default">
-  <div class="panel-heading" ng-controller="moneyCtrl">Deposits</div>
+  <div class="panel-heading">Deposits</div>
 
   <!-- Table -->
   <table class="table">
@@ -47,9 +44,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="deposit in deposits">
+      <tr ng-repeat="deposit in deposits ">
         <td></td>
-        <td>{{ deposit.date }}</td>
+        <td>{{ deposit.date | date: format: 'shortDate' }}</td>
         <td>{{ deposit.description }}</td>
         <td>{{ deposit.amountDeposited }}</td>
       </tr>
@@ -60,10 +57,11 @@
   <table class="table">
   <tbody>
     <th>
-      <td><input type="text" ng-model="date" class="form-control" placeholder="Date" /></td>
-      <td><input type="text" ng-model="description" class="form-control" placeholder="Description" /></td>
-      <td><input type="text" ng-model="amountDeposited" class="form-control" placeholder="Amount" /></td>
-      <td><input class="btn btn-success" type="submit" value="Submit"></td>
+      <form name="depositForm">
+        <td><input type="text" ng-model="deposit.description" class="form-control" placeholder="Description" /></td>
+        <td><input type="text" ng-model="deposit.amountDeposited" class="form-control" placeholder="Amount" /></td>
+        <td><input ng-click="makeDeposit(deposit, trip._id, trip.amountSavedTotal)" class="btn btn-success" type="submit" value="Submit"></td>
+      </form>
     </th>
   </tbody>
   </table>

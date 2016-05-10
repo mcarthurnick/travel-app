@@ -19,7 +19,7 @@ angular.module('travapp')
 
     this.createTrip = function(destination, arrivalDate, departDate, amountToSave, amountDeposited){
       return $http({
-        data: {destination: destination, arrivalDate: arrivalDate, departDate: departDate, amountToSave: amountToSave, amountDeposited: amountDeposited},
+        data: {destination: destination, arrivalDate: arrivalDate, departDate: departDate, amountToSave: amountToSave},
         method: 'POST',
         url: '/trip'
       }).success(function(res){
@@ -32,15 +32,17 @@ angular.module('travapp')
           console.log("This is from user put", res);
         });
       });
-    }
+    };
 
-    this.makeDeposit = function(date, description, amountDeposited) {
+    this.makeDeposit = function(deposit, id) {
       return $http({
-        data: {date: date, description: description, amountDeposited: amountDeposited},
-        method: 'PUT',
+        data: deposit,
+        method: 'POST',
         url: '/trip/' + id
-      }).success(function(res){})
-    }
+      }).then(function(res){
+        return res.data;
+      });
+    };
     //
     // this.createTrip = function(destination, arrivalDate, departDate, baseAirport, amountToSave, savedTotal){
     //   return $http({

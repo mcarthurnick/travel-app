@@ -1,33 +1,38 @@
-angular.module('travapp').controller('tripCtrl', function($scope, tripService, $mdDialog, $mdMedia, $timeout, $q, $log, $interval){
+angular.module('travapp').controller('tripCtrl', function($scope, tripService, $mdDialog, $mdMedia, $timeout, $q, $log, $interval, moment){
 
   tripService.getTrips().then(function(res) {
-    console.log("This is the result.. ", res);
       $scope.trips = res;
     });
 
-    $scope.createTrip = function(destination, arrivalDate, departDate, amountToSave, amountDeposited){
-      console.log("createTrip data from form: ", destination, arrivalDate, departDate, amountToSave, amountDeposited);
-      tripService.createTrip(destination, arrivalDate, departDate, amountToSave, amountDeposited)
-      .then(function(){
 
+
+    $scope.createTrip = function(destination, arrivalDate, departDate, amountToSave){
+      tripService.createTrip(destination, arrivalDate, departDate, amountToSave)
+      .then(function(){
       });
     };
 
-    // $scope.getPercentage = function(res){
-    //   $scope.amountSaved = parseInt($scope.trip.amountSavedTotal);
-    //   $scope.amountToSave = parseInt($scope.trip.amountToSave);
-    //   $scope.percentOfGoal = Math.round($scope.amountSaved / $scope.amountToSave * 100);
-    //
-    //       return $scope.percentOfGoal;
-    // };
+    $scope.getPercentage = function(res){
+      $scope.amountSavedTotal = parseInt($scope.trip.amountSavedTotal);
+      $scope.amountToSave = parseInt($scope.trip.amountToSave);
+      $scope.percentOfGoal = Math.round($scope.amountSavedTotal / $scope.amountToSave * 100);
+
+          return $scope.percentOfGoal;
+    };
 
     $scope.getTripDetail = function(id) {
     tripService.getTripDetail(id)
     .then(function(response){
       $scope.trip = response.data;
+      $scope.trip.amountSavedTotal = response.data.amountSavedTotal;
+      $scope.trip.amountToSave = response.data.amountToSave;
+      $scope.deposits = response.data.deposits;
+      console.log("This is the response:" + $scope.trip);
       console.log($scope.trip, "ScopeTrip");
     });
   };
+
+
 
 
   $scope.showDialog = function(ev){
@@ -47,14 +52,25 @@ angular.module('travapp').controller('tripCtrl', function($scope, tripService, $
   $scope.cancel = function() {
     $mdDialog.cancel();
   };
-}
+};
 
-// $scope.getProgressbarValue = function() {
-//     $scope.amountSaved = parseInt($scope.trip.amountSavedTotal);
-//     $scope.amountToSave = parseInt($scope.trip.amountToSave);
-//     $scope.percentOfGoal = Math.round($scope.amountSaved / $scope.amountToSave * 100);
-//
-//     return $scope.percentOfGoal;
-//   };
+  $scope.makeDeposit = function(deposit, id){
+    tripService.makeDeposit(deposit, id)
+    .then(function(response){
+      $scope.deposits = response.deposits;
+        $scope.getTripDetail(id);
+    });
+  };
+
+
+
+    //$scope.getAmountTotal = function(){
+    //    var total = 0;
+    //    for(var i = 0; i < $scope.deposits.length; i++){
+    //        total += $scope.deposits.amountDeposited[i];
+    //    }
+    //    console.log("This is the total: " + total);
+    //    return total;
+    //}
 
 });
