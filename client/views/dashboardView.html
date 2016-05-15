@@ -1,5 +1,7 @@
 <section ng-controller="tripCtrl as vm">
 <navbar></navbar>
+<h1 ng-show="!trips.length">You don't have any trips planned. Get your ass in gear!</h1>
+<div trip-container ng-show="trips.length">
 <div class="topView">
   <div class="card-block halfWidth">
       <h4 style="text-align: center; font-weight: 600;">{{ trip.arrivalDate | amDifference : null : 'days' }} days until your in {{ trip.destination }}!!</h4>
@@ -67,7 +69,10 @@
   </table>
   </div>
   <div class="panel panel-default">
-    <div class="panel-heading">Map</div>
+    <div ng-model="airBnb" class="panel-heading">AirBnB Listings</div>
+
+
 
   </div>
+</div>
 </section>

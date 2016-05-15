@@ -1,7 +1,11 @@
 
 <section id="dashboard">
   <navbar></navbar>
-
+  <div class="main-container">
+      <div class="trip-container" ng-repeat="trip in trips">
+        <a ui-sref="trip-detail(trip._id)"><h3>{{ trip.destination }}</h3></a>
+    </div>
+  </div>
   <section id="footer">
 
   </section>

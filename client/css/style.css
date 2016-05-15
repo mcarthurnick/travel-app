@@ -100,3 +100,32 @@
     border-radius: 4px;
     box-shadow: inset 0 1px 10px rgba(0,0,0,.1);
 }
+
+.main-container{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.trip-container {
+  background: #ccc;
+  padding: 5px;
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+  border-radius: 14px;
+  line-height: 150px;
+  color: white;
+  font-weight: bold;
+  font-size: 3em;
+  text-align: center;
+}

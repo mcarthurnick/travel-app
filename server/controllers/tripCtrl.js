@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    cors = require('cors');
     ObjectId = mongoose.Schema.ObjectId,
     Trip = require('../models/tripSchema'),
     Deposit = require('../models/depositSchema'),
@@ -15,6 +16,7 @@ getTrips: function(req, res, next){
       }
     });
 },
+
 
 getTripDetail: function (req, res) {
         var id = req.params.id;

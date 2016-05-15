@@ -3,19 +3,19 @@ angular.module('travapp', ['ui.router','ngMaterial', 'ui.bootstrap', 'angularMom
 
 .config(function($urlRouterProvider, $stateProvider) {
 
-    $urlRouterProvider.otherwise('dashboard');
+    $urlRouterProvider.otherwise('trip');
 
     $stateProvider
 
     .state('dashboard', {
       url: '/dashboard',
-      templateUrl: 'views/dashTemplate.html'
+      templateUrl: 'views/dashTemplate.html',
+      controller: 'tripCtrl'
     })
 
     .state('trip', {
       url: '/trip',
-      templateUrl: 'views/dashboardView.html',
-      controller: 'moneyCtrl'
+      templateUrl: 'views/dashboardView.html'
     })
 
     .state('login', {
@@ -32,20 +32,7 @@ angular.module('travapp', ['ui.router','ngMaterial', 'ui.bootstrap', 'angularMom
       url: '/create-trip',
       templateUrl: 'views/new-trip.html',
       controller: 'tripCtrl'
-    });
-
-    // .state('trip-detail', {
-    //   url: '/trip/:id',
-    //   templateUrl: 'views/dashboardView.html',
-    //   resolve: {
-    //           tripDetail: function(tripService, $stateParams) {
-    //               return tripService.getTripDetail($stateParams)
-    //               .then(function(response) {
-    //                   return response.data;
-    //                 });
-    //               }
-    //             }
-    // });
+    })
 
 
 

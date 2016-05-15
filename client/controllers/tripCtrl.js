@@ -1,10 +1,12 @@
-angular.module('travapp').controller('tripCtrl', function($scope, tripService, $mdDialog, $mdMedia, $timeout, $q, $log, $interval, moment){
+angular.module('travapp').controller('tripCtrl', function($scope, tripService, $mdDialog, $mdMedia, $timeout, $q, $log, $interval, moment, $state){
 
   tripService.getTrips().then(function(res) {
       $scope.trips = res;
     });
 
-
+    $scope.showTrip = function(){
+      console.log('Trips: ' + $scope.trips);
+    }
 
     $scope.createTrip = function(destination, arrivalDate, departDate, amountToSave){
       tripService.createTrip(destination, arrivalDate, departDate, amountToSave)
@@ -27,7 +29,6 @@ angular.module('travapp').controller('tripCtrl', function($scope, tripService, $
       $scope.trip.amountSavedTotal = response.data.amountSavedTotal;
       $scope.trip.amountToSave = response.data.amountToSave;
       $scope.deposits = response.data.deposits;
-      console.log("This is the response:" + $scope.trip);
       console.log($scope.trip, "ScopeTrip");
     });
   };
@@ -62,15 +63,5 @@ angular.module('travapp').controller('tripCtrl', function($scope, tripService, $
     });
   };
 
-
-
-    //$scope.getAmountTotal = function(){
-    //    var total = 0;
-    //    for(var i = 0; i < $scope.deposits.length; i++){
-    //        total += $scope.deposits.amountDeposited[i];
-    //    }
-    //    console.log("This is the total: " + total);
-    //    return total;
-    //}
 
 });

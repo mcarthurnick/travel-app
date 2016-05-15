@@ -43,21 +43,5 @@ angular.module('travapp')
         return res.data;
       });
     };
-    //
-    // this.createTrip = function(destination, arrivalDate, departDate, baseAirport, amountToSave, savedTotal){
-    //   return $http({
-    //     method: 'POST',
-    //     url: '/trips',
-    //     data: ,
-    //   }).success(function(res){
-    //     console.log(res.data, 'this is your creatTrip res.data');
-    //     return $http({
-    //       method: 'PUT',
-    //       url: '/user',
-    //       data: {trips: res._id}
-    //     }).success(function(res){
-    //       console.log("this is from user put", res);
-    //     });
-    //   });
-    // };
+
   });
